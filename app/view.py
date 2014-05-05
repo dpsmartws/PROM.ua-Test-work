@@ -13,7 +13,7 @@ from library_views import *
 
 @app.route("/")
 def main():
-    # Основная функция
+    # РћСЃРЅРѕРІРЅР°СЏ С„СѓРЅРєС†РёСЏ
     current_link = "/"
     loginform = LoginForm()
     registrationform = RegistrationForm()
@@ -24,15 +24,15 @@ def main():
 
 @app.route('/static/<path:filename>')
 def get_static(filename):
-    # Функция подрузки статики
+    # Р¤СѓРЅРєС†РёСЏ РїРѕРґСЂСѓР·РєРё СЃС‚Р°С‚РёРєРё
     return app.send_static_file(os.path.join('static', filename))
     
     
 
 @app.route("/<option>/")
 def other(option):
-    # Функция обрабатывающая запросы, не связанные с предыдущими функциями
-    # В нашем случае - просто выводит страницы с текстовой информацией
+    # Р¤СѓРЅРєС†РёСЏ РѕР±СЂР°Р±Р°С‚С‹РІР°СЋС‰Р°СЏ Р·Р°РїСЂРѕСЃС‹, РЅРµ СЃРІСЏР·Р°РЅРЅС‹Рµ СЃ РїСЂРµРґС‹РґСѓС‰РёРјРё С„СѓРЅРєС†РёСЏРјРё
+    # Р’ РЅР°С€РµРј СЃР»СѓС‡Р°Рµ - РїСЂРѕСЃС‚Рѕ РІС‹РІРѕРґРёС‚ СЃС‚СЂР°РЅРёС†С‹ СЃ С‚РµРєСЃС‚РѕРІРѕР№ РёРЅС„РѕСЂРјР°С†РёРµР№
     current_link = "/"+option
     user = get_user()
     return render_template("index.html", current_link=current_link, user = user)    
