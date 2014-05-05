@@ -8,7 +8,7 @@ from users_views import get_user
 
 @app.route("/library/search", methods = ['POST','AJAX'])
 def search():
-    # Поиск книг
+    # РџРѕРёСЃРє РєРЅРёРі
     books = {}
     authors = {}
     if request.form.has_key('search_string'):
@@ -18,14 +18,14 @@ def search():
             #books = db.engine.execute(sql_string)
             #sql_string = r"SELECT * FROM Author WHERE LOWER(name) or LOWER(second_name) or LOWER(last_name) LIKE LOWER('%%%s%%')" % (search_string) 
             #authors = db.engine.execute(sql_string)
-            books = Book.query.filter(Book.name.ilike("%"+search_string+"%")).all()   # CASE Не реагирует на кириллицу - проверить в дальнейшем
-            authors = Author.query.filter(or_(Author.name.ilike("%"+search_string+"%"), Author.second_name.ilike("%"+search_string+"%"), Author.last_name.ilike("%"+search_string+"%"))).all()   # CASE Не работает с кириллицей - проверить в дальнейшем
+            books = Book.query.filter(Book.name.ilike("%"+search_string+"%")).all()   # CASE РќРµ СЂРµР°РіРёСЂСѓРµС‚ РЅР° РєРёСЂРёР»Р»РёС†Сѓ - РїСЂРѕРІРµСЂРёС‚СЊ РІ РґР°Р»СЊРЅРµР№С€РµРј
+            authors = Author.query.filter(or_(Author.name.ilike("%"+search_string+"%"), Author.second_name.ilike("%"+search_string+"%"), Author.last_name.ilike("%"+search_string+"%"))).all()   # CASE РќРµ СЂР°Р±РѕС‚Р°РµС‚ СЃ РєРёСЂРёР»Р»РёС†РµР№ - РїСЂРѕРІРµСЂРёС‚СЊ РІ РґР°Р»СЊРЅРµР№С€РµРј
             serialized = json.dumps([obj.get_json() for obj in list(books)+list(authors)])
             return serialized
 
 @app.route("/library/load", methods = ['POST','AJAX'])
 def load():
-    # Поиск книг
+    # РџРѕРёСЃРє РєРЅРёРі
     user = get_user(category_id = 1)
     if user:
             objects = {}
@@ -46,7 +46,7 @@ def load():
 
 @app.route('/library/delete', methods=['AJAX','POST'])
 def delete():
-    # Поиск книг
+    # РџРѕРёСЃРє РєРЅРёРі
     user = get_user(category_id = 1)
     if user and request.form.has_key('class_name') and request.form.has_key('id'):
             class_name = request.form['class_name']
@@ -57,8 +57,8 @@ def delete():
                 db.session.commit()
             if class_name == "author":
                 author = Author.query.get(id)
-                #books = Book.query.filter_by(author_id = author.id)   # Выборка книг, привязанных к автору
-                #db.session.delete(books)     # Удаление книг, привязанных к автору
+                #books = Book.query.filter_by(author_id = author.id)   # Р’С‹Р±РѕСЂРєР° РєРЅРёРі, РїСЂРёРІСЏР·Р°РЅРЅС‹С… Рє Р°РІС‚РѕСЂСѓ
+                #db.session.delete(books)     # РЈРґР°Р»РµРЅРёРµ РєРЅРёРі, РїСЂРёРІСЏР·Р°РЅРЅС‹С… Рє Р°РІС‚РѕСЂСѓ
                 db.session.delete(author)
                 db.session.commit()
             return Response(True)
@@ -74,7 +74,7 @@ def show_author(id):
             books = Book.query.filter_by(author_id = author.id)
             return render_template('index.html', user = user, author=author, books=books, current_link=current_link)
     if request.method == "POST":
-        user = get_user(1)         # Доступно только администратору
+        user = get_user(1)         # Р”РѕСЃС‚СѓРїРЅРѕ С‚РѕР»СЊРєРѕ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂСѓ
         if user and request.form.has_key('id') and request.form.has_key('class_name'):
             class_name = request.form['class_name']
             id = request.form['id']
@@ -95,7 +95,7 @@ def show_book(id):
             author = Author.query.get(book.author_id)
             return render_template('index.html', user = user, author=author, book=book, current_link=current_link)
     if request.method == "POST":
-        user = get_user(1)      # Доступно только администратору
+        user = get_user(1)      # Р”РѕСЃС‚СѓРїРЅРѕ С‚РѕР»СЊРєРѕ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂСѓ
         if user and request.form.has_key('id') and request.form.has_key('class_name'):
             class_name = request.form['class_name']
             id = request.form['id']
@@ -109,7 +109,7 @@ def show_book(id):
             
 @app.route('/library/edit', methods=['GET','AJAX','POST'])
 def edit():
-    user = get_user(1)          # Доступно только администратору
+    user = get_user(1)          # Р”РѕСЃС‚СѓРїРЅРѕ С‚РѕР»СЊРєРѕ Р°РґРјРёРЅРёСЃС‚СЂР°С‚РѕСЂСѓ
     if user and request.form.has_key('id') and request.form.has_key('class_name'):
         class_name = request.form['class_name']
         id = request.form['id']
