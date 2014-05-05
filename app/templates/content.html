@@ -1,0 +1,14 @@
+{% block content %}
+	{% if current_link == "/login" %}
+		{% include "loginform.html" %}
+	{% elif current_link == "/about" %}
+		{% include "about.html" %}
+	{% elif current_link == "/author" %}
+		{% include "author.html" %}
+	{% elif current_link == "/book" %}
+		{% include "book.html" %}
+	{% elif current_link == "/" %}
+		{% include "main.html" %}
+		{% include "control.html" %}
+	{% endif %}
+{% endblock %}

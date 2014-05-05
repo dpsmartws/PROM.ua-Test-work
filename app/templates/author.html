@@ -1,0 +1,11 @@
+<div id="author_info_block">
+	<h3>Информация об авторе</h3>
+	<p>{{ author.name }} {{ author.second_name }} {{ author.last_name }}</p>
+	
+	<h3>Книги</h3>
+	{% for book in books %}
+		<a href="/book/{{ book.id }}"<p>{{ book.name }}</p></a>
+	{% endfor %}
+</div>
+
+	

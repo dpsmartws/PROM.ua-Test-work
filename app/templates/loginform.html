@@ -1,0 +1,8 @@
+<div id="loginform_block">
+	<p>Форма входа</p>
+	<form action="" method="POST" name="login">
+						{% for x in loginform.show() %}
+							{{ x() }}
+						{% endfor %}
+	</form>
+</div>

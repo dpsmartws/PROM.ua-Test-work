@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Заголовок</title>
+		<link rel="stylesheet" type="text/css" href="/static/css/fonts.css" /> 
+		<link rel="stylesheet" type="text/css" href="/static/css/custom.css" /> 
+		<script src="static/js/jquery.js" type="text/javascript" /></script>
+		<script src="static/js/lightbox/horizontal_tiny_scrolling.js" type="text/javascript"  /></script>
+		<script type="text/javascript" src="/static/js/core.js" ></script>
+	</head>
+	<body onload="init();">
+		<div id="mainblock">
+			<div id="header">
+				{% include "header.html" %}
+			</div>
+			
+			<div id="content">
+				{% include "content.html" %}
+			</div>
+			
+			<div id="footer">
+				{% include "footer.html" %}
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,288 @@
+body {
+	margin:0px;
+	padding:0px;
+	}	
+	
+h1,h2,h3,h4,h5,h6,p {
+	font-family:"dinproL","Century Gothic","Verdana";
+	font-weight:normal;
+	}
+	
+div#additional_background{
+	position:fixed;
+	top:0px;
+	left:0px;
+	margin:0x;
+	width:100%;
+	height:100%;
+	background-color:#222;
+	opacity:0.5;
+	cursor:pointer;
+	z-index:5;
+	}
+	
+div#additional_form_block{
+	position:fixed;
+	width:100%;
+	top:10%;
+	z-index:5;
+	}
+	
+div#additional_form_block div#additional_form{
+	position:relative;
+	width:330px;
+	height:280px;
+	margin:auto;
+	background-color:white;
+	border-radius:3px;
+	z-index:5;
+	}
+div#additional_form_block div#additional_form  p{
+	position:relative;
+	text-align:center;
+	margin:10px;
+	top:10px;
+	color:#555;
+	}
+div#additional_form_block div#additional_form  form{
+	width:210px;
+	margin:auto;
+	margin-top:40px;
+	}
+div#additional_form_block div#additional_form input{
+	width:205px;
+	height:30px;
+	padding-left:15px;
+	border-radius:3px;
+	box-shadow:none;
+	border:1px solid #888;
+	color:#888;
+	margin-bottom:5px;
+	}
+	
+div#additional_form_block div#additional_form input#button{
+	margin-top:10px;
+	width:222px;
+	height:40px;
+	padding-left:10px;
+	background-color:#ffffff;
+	border:1px solid #777;
+	}
+div#additional_form_block div#additional_form input#button:hover{
+	background-color:#777;
+	color:#ffffff;
+	cursor:pointer;
+	}
+	
+div#mainblock{
+	position:relative;
+	height:100%;
+	width:960px;
+	margin:auto;
+	}
+div#header div#top_title_block{	
+	position:relative;
+	width:100%;
+	margin:0px;
+	margin-top:8%;
+	padding:0px;
+	height:200px;
+	}
+div#header div#top_title_block h1{	
+	text-align:center;
+	font-size:50px;
+	color:#555;
+	}
+
+div#content{
+	min-height:250px;
+	}
+	
+div#searchblock{
+	position:relative;
+	width:800px;
+	margin:auto;
+	z-index:2;
+	}
+	
+div#searchblock input#search_line{
+	width:780px;
+	height:35px;
+	padding-left:20px;
+	border-radius:3px;
+	box-shadow:none;
+	border:1px solid #888;
+	color:#888;
+	}
+div#searchblock div#result_block{
+	position:absolute;
+	width:785px;
+	min-height:100px;
+	background-color:#fff;
+	border:1px solid #ccc;
+	padding-left:15px;
+	color:#777;
+	}
+
+div#user_block{
+	position:relative;
+	width:400px;
+	height:120px;
+	margin:auto;
+	margin-top:50px;
+	border:1px dashed #666;
+	border-radius:3px;
+	padding:10px;
+	color:#666;
+	z-index:1;
+	}
+	
+div#user_block p,div#user_block a{
+	text-align:center;
+	margin:5px;
+	}
+
+div#user_block p#control_panel_button span{
+	position:relative;
+	border-bottom:1px dashed #555;
+	font-weight:bold;
+	cursor:pointer;
+	}
+	
+div#user_block p#user_nickname span{
+	font-weight:bold;
+	}
+	
+div#control_form{
+	position:relative;
+	width:100%;
+	height:400px;
+	margin-top:30px;
+	background-color:#f1f1f1;
+	border-radius:4px;
+	padding:10px;
+	}
+
+div#control_form h3{
+	text-align:center;
+	margin:0px;
+	margin-top:10px;
+	}
+div#control_form div#authors_block{
+	float:left;
+	position:relative;
+	height:360px;
+	width:370px;
+	margin:0px;
+	border:1px dashed #777;
+	overflow-y:auto;
+	overflow-x:hidden;
+	}
+	
+div#control_form div#books_block{
+	float:right;
+	position:relative;
+	height:360px;
+	width:410px;
+	margin:0px;
+	border:1px dashed #777;
+	overflow-y:auto;
+	overflow-x:hidden;
+	}
+div#control_form table{
+	width:100%;
+	margin-top:10px;
+	}
+div#control_form table td{
+	border-top:1px dashed #777;
+	border-bottom:1px dashed #777;
+	}
+div#control_form table td#left{
+	width:50px;
+	}
+	
+div#control_form td  p{
+	display:inline-block;
+	margin:5px;
+	}
+div#control_form div.buttons {
+	float:right;
+	position:relative;
+	width:80px;
+	height:21px;	
+	margin-top:5px;
+	}
+div#control_form  div.buttons a img{
+	float:left;
+	width:20px;
+	height:20px;
+	margin-right:4px;
+	cursor:pointer;
+	}
+	
+div#author_info_block h3{
+	font-weight:bold;
+	}
+div#book_info_block h3{
+	font-weight:bold;
+	}
+	
+div#loginblock{
+	width:222px;
+	margin:auto;
+	}
+	
+div#loginblock input{
+	width:205px;
+	height:30px;
+	padding-left:15px;
+	border-radius:3px;
+	box-shadow:none;
+	border:1px solid #888;
+	color:#888;
+	margin-bottom:5px;
+	}
+
+div#loginblock input#button{
+	margin-top:10px;
+	width:222px;
+	height:40px;
+	padding-left:10px;
+	background-color:#ffffff;
+	border:1px solid #777;
+	}
+	
+div#loginblock input#button:hover{
+	background-color:#777;
+	color:#ffffff;
+	cursor:pointer;
+	}
+
+div#loginblock p{
+	border-bottom:1px dashed #333;
+	font-size:13px;
+	display:inline-block;
+	float:right;
+	margin-top:5px;
+	margin-right:0px;
+	padding-right:0px;
+	color:#555;
+	}
+	
+div#additional_functions{
+	position:relative;
+	margin:auto;
+	margin-top:20px;
+	width:120px;
+	}
+div#additional_functions a, div#additional_functions p{
+	display:inline-block;
+	margin-left:10px;
+	font-size:13px;
+	color:#333;
+	}
+div#additional_functions p{
+	border-bottom:1px dashed #333;
+	cursor:pointer;
+	}
+

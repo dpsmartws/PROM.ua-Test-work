@@ -1,0 +1,12 @@
+{% if user %}
+	<div id="user_block">
+		<p id="user_nickname">Вы зашли как <span>{{ user.nickname }}</span></p>
+		<p id="logout_link"><a href="/logout/" >Выход</a></p>
+		{% if user.category_id == 1 %}
+			<br/>
+			<p id="control_panel_button"><span>Открыть панель управления</span></p>
+		{% endif %}
+	</div>
+{% else %}
+	
+{% endif %}
