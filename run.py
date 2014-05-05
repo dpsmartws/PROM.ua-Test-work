@@ -7,12 +7,10 @@ import sys
 import os
 import imp
 
-def run(debug = True):
-    # Запуск основного приложения
+def run(debug = False):
     app.run(debug = debug)
     
 def migrate():
-    # Миграция базы данных
     from migrate.versioning import api
     migration = SQLALCHEMY_MIGRATE_REPO + '/versions/%03d_migration.py' % (api.db_version(SQLALCHEMY_DATABASE_URI, SQLALCHEMY_MIGRATE_REPO) + 1)
     tmp_module = imp.new_module('old_model')
@@ -21,11 +19,10 @@ def migrate():
     script = api.make_update_script_for_model(SQLALCHEMY_DATABASE_URI, SQLALCHEMY_MIGRATE_REPO, tmp_module.meta, db.metadata)
     open(migration, "wt").write(script)
     api.upgrade(SQLALCHEMY_DATABASE_URI, SQLALCHEMY_MIGRATE_REPO)
-    print u'�������� �������: ' + migration
-    print u'������ ���� ������: ' + str(api.db_version(SQLALCHEMY_DATABASE_URI, SQLALCHEMY_MIGRATE_REPO))
+    print u'Миграция успешна: ' + migration
+    print u'Версия базы данных: ' + str(api.db_version(SQLALCHEMY_DATABASE_URI, SQLALCHEMY_MIGRATE_REPO))
     
 def create_db():
-    # Создание базы данных из подключенных моделей
     from migrate.versioning import api
   
     db.create_all()
@@ -34,7 +31,6 @@ def create_db():
         api.version_control(SQLALCHEMY_DATABASE_URI, SQLALCHEMY_MIGRATE_REPO)
     else:
         api.version_control(SQLALCHEMY_DATABASE_URI, SQLALCHEMY_MIGRATE_REPO, api.version(SQLALCHEMY_MIGRATE_REPO))
-
 
 if __name__ == "__main__":
     # Запуск функции из консоли 
@@ -45,4 +41,4 @@ if __name__ == "__main__":
     #try:
     exec(args+"()")
     #except:
-    #print u"������ ����������"
+    #print u"Ошибка исполнения"
