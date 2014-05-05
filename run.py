@@ -36,7 +36,11 @@ def create_db():
         api.version_control(SQLALCHEMY_DATABASE_URI, SQLALCHEMY_MIGRATE_REPO, api.version(SQLALCHEMY_MIGRATE_REPO))
 
 
-if __name__ == "__main__":     
+if __name__ == "__main__":
+    # Запуск функции из консоли 
+    # run.py run 
+    # run.py migrate
+    # run.py create_db
     args = sys.argv[1]
     #try:
     exec(args+"()")
