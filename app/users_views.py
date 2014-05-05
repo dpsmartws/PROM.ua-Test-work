@@ -37,10 +37,8 @@ def registration():
     # Функция регистрации
     if request.method == "POST":
         form = RegistrationForm()
-        print "aaalalalalalalaaaaa"
         if form.validate_on_submit():
             if form.password.data == form.password2.data:
-                print "aaalalalalalalaaaaa2222"
                 try:
                     new_user = User(nickname = form.nickname.data, password = form.password.data)
                     db.session.add(new_user)
