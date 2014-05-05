@@ -10,4 +10,3 @@ db = SQLAlchemy(app)
 from view import *
 from models.users import *
 from models.library import *
- 
