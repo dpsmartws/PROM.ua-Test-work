@@ -8,7 +8,7 @@ from flask import Response, request,  session, redirect
 
 @app.route("/login/", methods = ["POST"])
 def login():
-    # Функция авторизации\аутентификации пользователей
+    # Р¤СѓРЅРєС†РёСЏ Р°РІС‚РѕСЂРёР·Р°С†РёРё\Р°СѓС‚РµРЅС‚РёС„РёРєР°С†РёРё РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№
     if request.method == "POST":
         form = LoginForm()
         if form.validate_on_submit():
@@ -22,7 +22,7 @@ def login():
 
 @app.route("/logout/", methods = ["GET"])
 def logout():
-    # Функция авторизации\аутентификации пользователей
+    # Р¤СѓРЅРєС†РёСЏ Р°РІС‚РѕСЂРёР·Р°С†РёРё\Р°СѓС‚РµРЅС‚РёС„РёРєР°С†РёРё РїРѕР»СЊР·РѕРІР°С‚РµР»РµР№
     if request.method == "GET":
         if "user" in session:
             user = User.query.filter_by(id = session['user'], is_online = True).first()
@@ -34,7 +34,7 @@ def logout():
 
 @app.route('/registration/', methods = ["POST"])
 def registration():
-    # Функция регистрации
+    # Р¤СѓРЅРєС†РёСЏ СЂРµРіРёСЃС‚СЂР°С†РёРё
     if request.method == "POST":
         form = RegistrationForm()
         print "aaalalalalalalaaaaa"
@@ -51,8 +51,8 @@ def registration():
     return redirect('/')
 
 def get_user(category_id = None):
-    # Функция выбирает пользователя из базы данных, 
-    # если он есть в сессии и имеет статус "онлайн"
+    # Р¤СѓРЅРєС†РёСЏ РІС‹Р±РёСЂР°РµС‚ РїРѕР»СЊР·РѕРІР°С‚РµР»СЏ РёР· Р±Р°Р·С‹ РґР°РЅРЅС‹С…, 
+    # РµСЃР»Рё РѕРЅ РµСЃС‚СЊ РІ СЃРµСЃСЃРёРё Рё РёРјРµРµС‚ СЃС‚Р°С‚СѓСЃ "РѕРЅР»Р°Р№РЅ"
     user = None
     if "user" in session:
         if category_id:
