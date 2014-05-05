@@ -6,12 +6,12 @@ from wtforms.validators import Required
 
 
 class LoginForm(Form):
-    nickname = TextField(u"Никнейм", default =  u"Имя аккаунта")
-    password = TextField(u"Пароль", default = u"Пароль")
+    nickname = TextField(u"РќРёРєРЅРµР№Рј", default =  u"РРјСЏ Р°РєРєР°СѓРЅС‚Р°")
+    password = TextField(u"РџР°СЂРѕР»СЊ", default = u"РџР°СЂРѕР»СЊ")
     
 
 class RegistrationForm(Form):
-    nickname = TextField(u"Никнейм",)
-    password = TextField(u"Пароль")
-    password2 = TextField(u"Повтор")
+    nickname = TextField(u"РќРёРєРЅРµР№Рј",)
+    password = TextField(u"РџР°СЂРѕР»СЊ")
+    password2 = TextField(u"РџРѕРІС‚РѕСЂ")
     
