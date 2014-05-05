@@ -8,9 +8,11 @@ import os
 import imp
 
 def run(debug = True):
+    # Р—Р°РїСѓСЃРє РѕСЃРЅРѕРІРЅРѕРіРѕ РїСЂРёР»РѕР¶РµРЅРёСЏ
     app.run(debug = debug)
     
 def migrate():
+    # РњРёРіСЂР°С†РёСЏ Р±Р°Р·С‹ РґР°РЅРЅС‹С…
     from migrate.versioning import api
     migration = SQLALCHEMY_MIGRATE_REPO + '/versions/%03d_migration.py' % (api.db_version(SQLALCHEMY_DATABASE_URI, SQLALCHEMY_MIGRATE_REPO) + 1)
     tmp_module = imp.new_module('old_model')
@@ -19,10 +21,11 @@ def migrate():
     script = api.make_update_script_for_model(SQLALCHEMY_DATABASE_URI, SQLALCHEMY_MIGRATE_REPO, tmp_module.meta, db.metadata)
     open(migration, "wt").write(script)
     api.upgrade(SQLALCHEMY_DATABASE_URI, SQLALCHEMY_MIGRATE_REPO)
-    print u'Миграция успешна: ' + migration
-    print u'Версия базы данных: ' + str(api.db_version(SQLALCHEMY_DATABASE_URI, SQLALCHEMY_MIGRATE_REPO))
+    print u'пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ: ' + migration
+    print u'пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅ: ' + str(api.db_version(SQLALCHEMY_DATABASE_URI, SQLALCHEMY_MIGRATE_REPO))
     
 def create_db():
+    # РЎРѕР·РґР°РЅРёРµ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РёР· РїРѕРґРєР»СЋС‡РµРЅРЅС‹С… РјРѕРґРµР»РµР№
     from migrate.versioning import api
   
     db.create_all()
@@ -38,4 +41,4 @@ if __name__ == "__main__":
     #try:
     exec(args+"()")
     #except:
-    #print u"Ошибка исполнения"
+    #print u"пїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ"
